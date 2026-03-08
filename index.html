@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活動食材管理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div class="header-title" id="headerTitle">食材管理</div>
+  <div class="day-switcher" id="dayBtns"></div>
+  <div class="today-tip" id="todayTip">—</div>
+  <div class="header-right">
+    <button class="btn btn-danger" id="resetDayBtn" onclick="resetDay()">重置當天</button>
+    <button class="btn btn-secondary" onclick="toggleDayConfig()" id="configToggleBtn">每日推薦設定</button>
+    <button class="btn btn-secondary" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</div>
+
+<!-- DAY CONFIG PANEL -->
+<div id="dayConfigPanel" style="display:none; background:rgba(240,244,248,0.96); backdrop-filter:blur(16px); border-bottom:1.5px solid var(--glass-border); padding:16px 28px; box-shadow:0 4px 16px rgba(100,130,180,0.10);">
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+    <span id="dayConfigTitle" style="font-size:0.82rem; font-weight:700; color:var(--text-muted); letter-spacing:0.05em;">每日推薦菜設定（每帳號各別）</span>
+    <button class="btn btn-primary" id="saveDayConfigBtn" style="padding:6px 16px;font-size:0.8rem;" onclick="saveDayConfig()">儲存設定</button>
+  </div>
+  <div id="dayConfigSlots" style="overflow-x:auto;"></div>
+</div>
+
+<main>
+  <!-- ACCOUNTS -->
+  <div class="section-title" style="justify-content:space-between;align-items:center;display:flex;">
+    <span style="display:flex;align-items:center;gap:10px;">
+      <span style="display:block;width:4px;height:20px;background:linear-gradient(to bottom,var(--primary),var(--lavender));border-radius:3px;"></span>
+      <span id="sectionTitleAccounts">帳號食材庫存</span>
+    </span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button class="btn btn-secondary" id="clearAllBtn" style="font-size:0.8rem;padding:6px 14px;" onclick="clearAllIngredients()">🗑 全部清零</button>
+      <button class="btn btn-secondary" id="addFarmBtn" style="font-size:0.8rem;padding:6px 14px;" onclick="addFarmAccount()">新增農場帳號</button>
+    </div>
+  </div>
+  <div id="accounts-grid"></div>
+  <div id="farm-total-bar"></div>
+
+  <!-- SMART RECOMMEND -->
+  <div class="section-title" id="sectionTitleRecommend">智慧推薦</div>
+  <div id="recommend-section">
+    <div class="recommend-controls">
+      <button class="btn btn-primary" id="calcRecommendBtn" onclick="calcRecommend()">計算最佳方案</button>
+      <button class="btn btn-green" id="execTransferBtn" onclick="execTransfer()" disabled>執行轉移</button>
+      <button class="btn btn-gold" id="cookSpecialBtn" onclick="cookDishes('special')" disabled>✅ 烹飪推薦菜</button>
+      <button class="btn btn-gold" id="cookAllBtn" onclick="cookDishes('all')" disabled style="opacity:0.85">✅ 烹飪全部</button>
+    </div>
+    <div class="cook-acct-filter" id="cookAcctFilter" style="display:none">
+      <span class="cook-filter-label" id="cookFilterLabel">烹飪帳號：</span>
+      <div id="cookAcctCheckboxes" class="cook-filter-checks"></div>
+      <button class="cook-filter-all" id="selectAllBtn" onclick="setCookFilterAll(true)">全選</button>
+      <button class="cook-filter-all" id="selectNoneBtn" onclick="setCookFilterAll(false)">全不選</button>
+    </div>
+    <div class="recommend-grid-2x2">
+      <div class="recommend-panel" style="grid-column: span 2;">
+        <div class="panel-title"><span class="dot"></span><span id="cookPlanTitle">建議烹飪計劃</span></div>
+        <div id="cook-plan-body"><div class="empty-tip">點擊「計算最佳方案」以生成建議</div></div>
+      </div>
+      <div class="recommend-panel">
+        <div class="panel-title"><span class="dot"></span><span id="transferTitle">食材轉移清單</span></div>
+        <div id="transfer-body"><div class="empty-tip">—</div></div>
+      </div>
+      <div class="recommend-panel">
+        <div class="panel-title"><span class="dot"></span><span id="scoreTitle">積分預覽 &amp; 剩餘食材</span></div>
+        <div id="score-preview-body"><div class="empty-tip">—</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
