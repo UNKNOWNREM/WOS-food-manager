@@ -1,4 +1,4 @@
-# 活動食材管理 / WoS Food Manager
+# 活動食材管理 / WOS Food Manager
 
 一個專為《寒霜啟示錄（Whiteout Survival ）》活動設計的食材庫存管理工具，支援多帳號管理、智慧烹飪推薦與食材轉移計算。
 
