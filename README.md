@@ -47,8 +47,8 @@ script.js
 
 | 食譜 | 食材 | 積分 | 類型 |
 |------|------|------|------|
-| 煎鱈魚 | 奶油×1、魚肉×2、鹽×1 | 40 | 推薦 |
-| 焗番茄 | 雞蛋×1、起司×1、番茄×2 | 40 | 推薦 |
+| 煎鱈魚 | 奶油×1、魚肉×2、鹽×1 | 50 | 推薦 |
+| 焗番茄 | 雞蛋×1、起司×1、番茄×2 | 50 | 推薦 |
 | 烤羊排 | 羊排×2、黑胡椒×1、奶油×1 | 40 | 一般 |
 | 慶典蛋糕 | 白巧克力×2、雞蛋×1、麵粉×1 | 40 | 一般 |
 | 菇菇起司捲 | 麵粉×1、蘑菇×2、起司×1 | 40 | 一般 |
@@ -115,8 +115,8 @@ Open `index.html` in any modern browser.
 
 | Recipe | Ingredients | Score | Type |
 |--------|-------------|-------|------|
-| Pan-Seared Cod | Butter×1, Fish×2, Salt×1 | 40 | Recommended |
-| Baked Tomatoes | Egg×1, Cheese×1, Tomatoes×2 | 40 | Recommended |
+| Pan-Seared Cod | Butter×1, Fish×2, Salt×1 | 50 | Recommended |
+| Baked Tomatoes | Egg×1, Cheese×1, Tomatoes×2 | 50 | Recommended |
 | Roasted Lamb Chops | Lamb Chops×2, Pepper×1, Butter×1 | 40 | Normal |
 | Pastry Palace | White Choc×2, Egg×1, Flour×1 | 40 | Normal |
 | Cheesy Mushroom Wrap | Flour×1, Mushroom×2, Cheese×1 | 40 | Normal |
